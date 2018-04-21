@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "667181316880",
+    "firebase_url": "https://fooddiary-a3538.firebaseio.com",
+    "project_id": "fooddiary-a3538",
+    "storage_bucket": "fooddiary-a3538.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667181316880:android:a27e2aaad9d18dd3",
+        "android_client_info": {
+          "package_name": "ie.fran.fooddiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "667181316880-vcda1j2olu9km81vfghq5vk6ociiko2c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ie.fran.fooddiary",
+            "certificate_hash": "f1b5e07e36fa1f297b4ea39bc0ef734ca3c36536"
+          }
+        },
+        {
+          "client_id": "667181316880-ivuifqq1tqrtt38r4f0m3pnove45n3u0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwxhFM8RswxHHGpyINtgDOHGq4kTV3yTo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "667181316880-ivuifqq1tqrtt38r4f0m3pnove45n3u0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667181316880:android:ea57d337e0daddfa",
+        "android_client_info": {
+          "package_name": "ie.fran.fooddiary2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "667181316880-4s252v5pgb5dlv8dug0fieqntqaaj6o7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ie.fran.fooddiary2",
+            "certificate_hash": "f1b5e07e36fa1f297b4ea39bc0ef734ca3c36536"
+          }
+        },
+        {
+          "client_id": "667181316880-ivuifqq1tqrtt38r4f0m3pnove45n3u0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwxhFM8RswxHHGpyINtgDOHGq4kTV3yTo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "667181316880-ivuifqq1tqrtt38r4f0m3pnove45n3u0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
