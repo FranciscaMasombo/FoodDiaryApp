@@ -21,7 +21,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UploadRecyclerVeiw extends AppCompatActivity implements Adapter.OnItemClickListener {
+public class Veiw extends AppCompatActivity implements Adapter.OnItemClickListener {
     private RecyclerView mRecyclerView;
     private Adapter mAdapter;
 
@@ -34,14 +34,14 @@ public class UploadRecyclerVeiw extends AppCompatActivity implements Adapter.OnI
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_uploadrecyclerveiwxml);
+        setContentView(R.layout.activity_view);
 
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mProgressCircle = findViewById(R.id.progress_circle);
-        mAdapter = new Adapter(UploadRecyclerVeiw.this, mUploads);
+        mAdapter = new Adapter(Veiw.this, mUploads);
         mUploads = new ArrayList<>();
 
         mStorage = FirebaseStorage.getInstance();
@@ -57,11 +57,11 @@ public class UploadRecyclerVeiw extends AppCompatActivity implements Adapter.OnI
                     mUploads.add(upload);
                 }
 
-  mAdapter = new Adapter(UploadRecyclerVeiw.this, mUploads);
+  mAdapter = new Adapter(Veiw.this, mUploads);
                 mAdapter.notifyDataSetChanged();
             mRecyclerView.setAdapter(mAdapter);
 
-                mAdapter.setOnItemClickListener(UploadRecyclerVeiw.this);
+                mAdapter.setOnItemClickListener(Veiw.this);
 
 
                 mProgressCircle.setVisibility(View.INVISIBLE);
@@ -69,7 +69,7 @@ public class UploadRecyclerVeiw extends AppCompatActivity implements Adapter.OnI
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(UploadRecyclerVeiw.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Veiw.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                 mProgressCircle.setVisibility(View.INVISIBLE);
             }
         });
@@ -97,7 +97,7 @@ public class UploadRecyclerVeiw extends AppCompatActivity implements Adapter.OnI
             @Override
             public void onSuccess(Void aVoid) {
                 mDatabaseRef.child(selectedKey).removeValue();
-                Toast.makeText(UploadRecyclerVeiw.this, "Item deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Veiw.this, "Item deleted", Toast.LENGTH_SHORT).show();
             }
         });
     }

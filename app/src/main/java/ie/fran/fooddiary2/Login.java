@@ -1,4 +1,5 @@
 package ie.fran.fooddiary2;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -73,10 +74,20 @@ public class Login extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 if(dataSnapshot.hasChild(userid)){
+
+
+                    final ProgressDialog progressDialog = new ProgressDialog(Login.this,
+                            R.style.AppTheme_Dark_Dialog);
+                    progressDialog.setIndeterminate(true);
+                    progressDialog.setMessage("Authenticating...");
+                    progressDialog.show();
+
+
                     //start new intent so they can use the app
                     Toast.makeText(getApplicationContext(), "Welcome Back.", Toast.LENGTH_SHORT).show();
-                    Intent home = new Intent(Login.this,UploadRecyclerVeiw.class);
+                    Intent home = new Intent(Login.this,Veiw.class);
                     startActivity(home);
+
                 }
 
             }

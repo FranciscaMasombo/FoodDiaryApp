@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openImagesActivity() {
-        Intent intent = new Intent(this, UploadRecyclerVeiw.class);
+        Intent intent = new Intent(this, Veiw.class);
         startActivity(intent);
     }
 }
