@@ -1,24 +1,52 @@
 <resources>
 
+    <!--&lt;!&ndash; Base application theme. &ndash;&gt;-->
+    <!--<style name="AppTheme">-->
+        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+        <!--<item name="cardViewStyle">@style/CardView</item>-->
+
+    <!--</style>-->
+
+    <!--<style name="AppTheme_Dark_Dialog"></style>-->
+
+    <!--<style name="AppTheme.NoActionBar">-->
+        <!--<item name="coordinatorLayoutStyle">@style/Widget.Design.CoordinatorLayout</item>-->
+        <!--<item name="windowActionBar">false</item>-->
+        <!--<item name="windowNoTitle">true</item>-->
+    <!--</style>-->
+
+    <!--<style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
+
+    <!--<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
+
+<!--</resources>-->
+
     <!-- Base application theme. -->
-    <style name="AppTheme">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="cardViewStyle">@style/CardView</item>
+<style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+<!-- Customize your theme here. -->
+<item name="colorPrimary">@color/colorPrimary</item>
+<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+<item name="colorAccent">@color/colorAccent</item>
+<item name="cardViewStyle">@style/CardView</item>
+</style>
 
-    </style>
+<style name="AppTheme_Dark_Dialog">
 
-    <style name="AppTheme_Dark_Dialog"></style>
+</style>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
+<style name="AppTheme.NoActionBar">
+<item name="coordinatorLayoutStyle">@style/Widget.Design.CoordinatorLayout</item>
+<item name="windowActionBar">false</item>
+<item name="windowNoTitle">true</item>
+</style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+<style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-</resources>
+
+
+    </resources>

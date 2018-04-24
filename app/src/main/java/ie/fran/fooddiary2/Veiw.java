@@ -78,13 +78,13 @@ public class Veiw extends AppCompatActivity implements Adapter.OnItemClickListen
 
     @Override
     public void onItemClick(int position) {
-        Toast.makeText(this, "Normal click at position: " + position, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "This is Recipe Number: " + position, Toast.LENGTH_SHORT).show();
     }
 
     @Override
 
     public void onEditClick(int position) {
-        Toast.makeText(this, "Whatever click at position: " + position, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Do you want edit : " + position, Toast.LENGTH_SHORT).show();
     }
 
     @Override

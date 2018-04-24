@@ -66,6 +66,11 @@ public class Login extends AppCompatActivity {
     }
 
     public void  alreadyExists() {
+        final ProgressDialog progressDialog = new ProgressDialog(Login.this,
+                R.style.AppTheme_Dark_Dialog);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Authenticating...");
+        progressDialog.show();
         final String  userid = mAuth.getCurrentUser().getUid();
 
         mydatabaseref.addValueEventListener(new ValueEventListener() {
@@ -73,22 +78,21 @@ public class Login extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+
                 if(dataSnapshot.hasChild(userid)){
 
 
-                    final ProgressDialog progressDialog = new ProgressDialog(Login.this,
-                            R.style.AppTheme_Dark_Dialog);
-                    progressDialog.setIndeterminate(true);
-                    progressDialog.setMessage("Authenticating...");
-                    progressDialog.show();
 
 
                     //start new intent so they can use the app
                     Toast.makeText(getApplicationContext(), "Welcome Back.", Toast.LENGTH_SHORT).show();
-                    Intent home = new Intent(Login.this,Veiw.class);
+
+
+                    Intent home = new Intent(Login.this,TheMenu.class);
                     startActivity(home);
 
                 }
+
 
             }
 
