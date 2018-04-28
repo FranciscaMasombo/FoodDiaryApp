@@ -24,8 +24,8 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="I can cook"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        />
 
     <TextView
         android:id="@+id/textView"

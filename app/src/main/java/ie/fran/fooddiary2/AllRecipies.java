@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -21,7 +20,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Veiw extends AppCompatActivity implements Adapter.OnItemClickListener {
+public class AllRecipies extends AppCompatActivity implements Adapter.OnItemClickListener {
     private RecyclerView mRecyclerView;
     private Adapter mAdapter;
 
@@ -31,6 +30,7 @@ public class Veiw extends AppCompatActivity implements Adapter.OnItemClickListen
 
     private ValueEventListener mDBListener;
     private List<Upload> mUploads;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,13 +41,13 @@ public class Veiw extends AppCompatActivity implements Adapter.OnItemClickListen
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mProgressCircle = findViewById(R.id.progress_circle);
-        mAdapter = new Adapter(Veiw.this, mUploads);
+        mAdapter = new Adapter(AllRecipies.this, mUploads);
         mUploads = new ArrayList<>();
 
         mStorage = FirebaseStorage.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("fooddiary");
 
-        mDBListener =   mDatabaseRef.addValueEventListener(new ValueEventListener() {
+        mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mUploads.clear();
@@ -57,20 +57,20 @@ public class Veiw extends AppCompatActivity implements Adapter.OnItemClickListen
                     mUploads.add(upload);
                 }
 
-  mAdapter = new Adapter(Veiw.this, mUploads);
+                mAdapter = new Adapter(AllRecipies.this, mUploads);
                 mAdapter.notifyDataSetChanged();
-            mRecyclerView.setAdapter(mAdapter);
+                mRecyclerView.setAdapter(mAdapter);
 
-                mAdapter.setOnItemClickListener(Veiw.this);
+                mAdapter.setOnItemClickListener(AllRecipies.this);
 
 
-                mProgressCircle.setVisibility(View.INVISIBLE);
+                mProgressCircle.setVisibility(android.view.View.INVISIBLE);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(Veiw.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-                mProgressCircle.setVisibility(View.INVISIBLE);
+                Toast.makeText(AllRecipies.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                mProgressCircle.setVisibility(android.view.View.INVISIBLE);
             }
         });
     }
@@ -97,7 +97,7 @@ public class Veiw extends AppCompatActivity implements Adapter.OnItemClickListen
             @Override
             public void onSuccess(Void aVoid) {
                 mDatabaseRef.child(selectedKey).removeValue();
-                Toast.makeText(Veiw.this, "Item deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AllRecipies.this, "Item deleted", Toast.LENGTH_SHORT).show();
             }
         });
     }

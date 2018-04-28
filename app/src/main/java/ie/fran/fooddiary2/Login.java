@@ -1,4 +1,5 @@
 package ie.fran.fooddiary2;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -20,24 +21,25 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.Objects;
+
 public class Login extends AppCompatActivity {
-    private EditText  password;
+    private EditText password;
     private EditText email;
     private StorageReference mStorageRef;
     private DatabaseReference mydatabaseref;
     private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-        email= findViewById(R.id.email);
-        password= findViewById(R.id. password);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
         mAuth = FirebaseAuth.getInstance();
         mydatabaseref = FirebaseDatabase.getInstance().getReference().child("users");
     }
-
 
 
     public void login(View view) {
@@ -46,10 +48,8 @@ public class Login extends AppCompatActivity {
         String passwordentered = password.getText().toString().trim();
         if (!emailentered.matches("[a-zA-Z0-9._-]+@[a-z]+.[a-z]+")) {
             email.setError("Invalid Email Address");
-        }else{
-            if (!TextUtils.isEmpty(emailentered)&& !TextUtils.isEmpty(passwordentered )) {
-
-
+        } else {
+            if (!TextUtils.isEmpty(emailentered) && !TextUtils.isEmpty(passwordentered)) {
                 mAuth.signInWithEmailAndPassword(emailentered, passwordentered).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -57,55 +57,43 @@ public class Login extends AppCompatActivity {
                             //check if they are already a user
                             alreadyExists();
                         }
+                        else{
+                            //start new intent so they can use the app
+                            Toast.makeText(getApplicationContext(), "You Need to Reixter", Toast.LENGTH_SHORT).show();
+
+                        }
                     }
                 });
             }
         }
 
-
     }
 
-    public void  alreadyExists() {
-        final ProgressDialog progressDialog = new ProgressDialog(Login.this,
-                R.style.AppTheme_Dark_Dialog);
-        progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Authenticating...");
-        progressDialog.show();
-        final String  userid = mAuth.getCurrentUser().getUid();
+    public void alreadyExists() {
+
+        final String userid = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
 
         mydatabaseref.addValueEventListener(new ValueEventListener() {
-
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
-
-                if(dataSnapshot.hasChild(userid)){
-
-
-
+                if (dataSnapshot.hasChild(userid)) {
 
                     //start new intent so they can use the app
                     Toast.makeText(getApplicationContext(), "Welcome Back.", Toast.LENGTH_SHORT).show();
 
-
-                    Intent home = new Intent(Login.this,TheMenu.class);
+                    Intent home = new Intent(Login.this, TheMenu.class);
                     startActivity(home);
-
+                    finish();
                 }
 
 
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
 
-
-
     }
-
-
 
 }

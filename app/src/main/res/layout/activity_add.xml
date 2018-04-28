@@ -7,95 +7,165 @@
     android:padding="10dp"
     tools:context=".Add">
 
-
-    <ImageView
-        android:id="@+id/image_view"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="2dp" />
-
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/image_view"
-        android:layout_centerHorizontal="true" />
-    <Button
-        android:id="@+id/button_choose_image"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/progress_bar"
-        android:text="Add Image "
-        />
-
-    <EditText
-        android:id="@+id/edit_text_file_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="214dp"
-        android:hint="Enter file name"
-        android:inputType="text"/>
+        android:layout_alignParentStart="true">
 
-    <EditText
-        android:id="@+id/editTextdate"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/edit_text_file_name"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="-214dp"
-        android:ems="10"
-        android:hint="Date"
-        android:inputType="date" />
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="248dp"
+            android:layout_height="180dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="2dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="57dp"
+            app:layout_constraintBottom_toTopOf="@+id/button_choose_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.107"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextcal"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="170dp"
-        android:ems="10"
-        android:hint="how many cal"
-        android:inputType="number" />
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="11dp"
+            android:layout_below="@+id/image_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/button_upload"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextdate" />
 
-    <EditText
-        android:id="@+id/editTexttype"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button_upload"
-        android:layout_alignParentStart="true"
-        android:ems="10"
-        android:hint="Lunch, Breakfast or Dinner"
-        android:inputType="text" />
+        <Button
+            android:id="@+id/button_choose_image"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/progress_bar"
+            android:layout_marginBottom="9dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="9dp"
+            android:text="Add Image "
+            app:layout_constraintBottom_toTopOf="@+id/edit_text_file_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.899"
+            app:layout_constraintStart_toEndOf="@+id/edit_text_file_name"
+            app:layout_constraintTop_toBottomOf="@+id/image_view"
+            app:layout_constraintVertical_bias="1.0" />
 
-    <Button
-        android:id="@+id/button_upload"
-        android:layout_width="360dp"
-        android:layout_height="38dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp"
-        android:text="Save" />
+        <EditText
+            android:id="@+id/edit_text_file_name"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:hint="Enter file name"
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/editTexttype"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_view" />
 
-    <Button
-        android:id="@+id/text_view_show_uploads"
-        android:layout_width="133dp"
-        android:layout_height="38dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="21dp"
-        android:gravity="center"
-        android:text="Show Foods"
-        android:textSize="10sp" />
+        <EditText
+            android:id="@+id/editTextdate"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/edit_text_file_name"
+            android:layout_marginBottom="90dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:hint="Date"
+            android:inputType="date"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextcal" />
 
+        <EditText
+            android:id="@+id/editTextcal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:hint="how many cal"
+            android:inputType="number"
+            app:layout_constraintBottom_toTopOf="@+id/editTextdate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTexttype" />
 
+        <EditText
+            android:id="@+id/editTexttype"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:layout_above="@+id/button_upload"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Lunch, Breakfast or Dinner"
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/editTextcal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_text_file_name" />
+
+        <Button
+            android:id="@+id/button_upload"
+            android:layout_width="133dp"
+            android:layout_height="38dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="23dp"
+            android:layout_marginEnd="127dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="27dp"
+            android:text="Save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/text_view_show_uploads"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
+
+        <Button
+            android:id="@+id/text_view_show_uploads"
+            android:layout_width="133dp"
+            android:layout_height="38dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:text="Show Foods"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
 
 
 </RelativeLayout>
