@@ -1,10 +1,20 @@
 package ie.fran.fooddiary2;
 
 
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -20,7 +30,8 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllRecipies extends AppCompatActivity implements Adapter.OnItemClickListener {
+public class AllRecipies extends AppCompatActivity  implements Adapter.OnItemClickListener{
+
     private RecyclerView mRecyclerView;
     private Adapter mAdapter;
 
@@ -34,7 +45,10 @@ public class AllRecipies extends AppCompatActivity implements Adapter.OnItemClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view);
+        setContentView(R.layout.activity_allrecipies);
+
+        Toolbar mt  = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mt);
 
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -75,7 +89,12 @@ public class AllRecipies extends AppCompatActivity implements Adapter.OnItemClic
         });
     }
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater mf = getMenuInflater();
+        mf.inflate(R.menu.the_menu, menu);
+        return true;
+    }
     @Override
     public void onItemClick(int position) {
         Toast.makeText(this, "This is Recipe Number: " + position, Toast.LENGTH_SHORT).show();
@@ -107,4 +126,6 @@ public class AllRecipies extends AppCompatActivity implements Adapter.OnItemClic
         super.onDestroy();
         mDatabaseRef.removeEventListener(mDBListener);
     }
+
+
 }

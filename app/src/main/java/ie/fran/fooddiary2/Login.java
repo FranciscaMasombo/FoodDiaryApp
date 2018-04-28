@@ -81,7 +81,7 @@ public class Login extends AppCompatActivity {
                     //start new intent so they can use the app
                     Toast.makeText(getApplicationContext(), "Welcome Back.", Toast.LENGTH_SHORT).show();
 
-                    Intent home = new Intent(Login.this, TheMenu.class);
+                    Intent home = new Intent(Login.this, AllRecipies.class);
                     startActivity(home);
                     finish();
                 }

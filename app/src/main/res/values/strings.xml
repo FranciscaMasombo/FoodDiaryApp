@@ -1,5 +1,5 @@
-<resources>
-    <string name="app_name">FoodDiary2</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">My Recipes</string>
     <string name="title_activity_the_menu">TheMenu</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -7,6 +7,10 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    <string name="add_image">Add Image</string>
+
     <string name="todo">TODO</string>
+    <string name="send">Send</string>
+    <string name="recipes">Recipes</string>
+    <string name="add_image">Add Image</string>
+    <string name="enter_file_name">Enter file name</string>
 </resources>

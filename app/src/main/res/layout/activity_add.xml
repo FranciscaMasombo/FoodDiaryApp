@@ -1,31 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
-    tools:context=".Add">
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentStart="true"
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
+    tools:context=".Add"
+    >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="10dp"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_constraintBottom_toTopOf="@+id/image_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.378"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
         <ImageView
             android:id="@+id/image_view"
             android:layout_width="248dp"
-            android:layout_height="180dp"
+            android:layout_height="157dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="2dp"
             android:layout_marginEnd="50dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="57dp"
+            android:layout_marginTop="80dp"
+            android:contentDescription="TODO"
             app:layout_constraintBottom_toTopOf="@+id/button_choose_image"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.107"
+            app:layout_constraintHorizontal_bias="0.078"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,21 +48,23 @@
             android:id="@+id/progress_bar"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
-            android:layout_height="11dp"
+            android:layout_height="16dp"
             android:layout_below="@+id/image_view"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="5dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@+id/button_upload"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextdate" />
 
         <Button
             android:id="@+id/button_choose_image"
+            android:background="null"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
             android:layout_alignParentStart="true"
@@ -55,10 +72,10 @@
             android:layout_marginBottom="9dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="9dp"
-            android:text="Add Image "
+            android:text="@string/add_image"
             app:layout_constraintBottom_toTopOf="@+id/edit_text_file_name"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.899"
+            app:layout_constraintHorizontal_bias="0.93"
             app:layout_constraintStart_toEndOf="@+id/edit_text_file_name"
             app:layout_constraintTop_toBottomOf="@+id/image_view"
             app:layout_constraintVertical_bias="1.0" />
@@ -73,7 +90,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:hint="Enter file name"
+            android:hint="Recipe Name "
             android:inputType="text"
             app:layout_constraintBottom_toTopOf="@+id/editTexttype"
             app:layout_constraintEnd_toEndOf="parent"
@@ -90,8 +107,8 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:ems="10"
-            android:hint="Date"
-            android:inputType="date"
+            android:hint="Ingredients"
+            android:inputType="textMultiLine"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -127,12 +144,13 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="Lunch, Breakfast or Dinner"
-            android:inputType="text"
+            android:hint="instructions "
+            android:inputType="textMultiLine"
             app:layout_constraintBottom_toTopOf="@+id/editTextcal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_text_file_name" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_text_file_name"
+           />
 
         <Button
             android:id="@+id/button_upload"
@@ -149,7 +167,8 @@
             app:layout_constraintEnd_toStartOf="@+id/text_view_show_uploads"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
+            app:layout_constraintTop_toBottomOf="@+id/progress_bar"
+           />
 
         <Button
             android:id="@+id/text_view_show_uploads"
@@ -161,11 +180,13 @@
             android:layout_marginEnd="16dp"
             android:gravity="center"
             android:text="Show Foods"
-            android:textSize="10sp"
+
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="null"
+            android:textSize="15sp" />
 
-    </android.support.constraint.ConstraintLayout>
 
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
+
