@@ -58,7 +58,7 @@ public class Add extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
    Toolbar myt =(Toolbar)findViewById(R.id.toolbar);
- setSupportActionBar(myt);
+  setSupportActionBar(myt);
 
         mButtonChooseImage = findViewById(R.id.button_choose_image);
         mButtonUpload = findViewById(R.id.button_upload);
@@ -112,6 +112,10 @@ public class Add extends AppCompatActivity {
             startActivity(intent);
         }if(item.getItemId()== R.id.nav_add){
             Intent intent = new Intent(this, Add.class);
+
+            startActivity(intent);
+        }  if(item.getItemId()== R.id.dd){
+            Intent intent = new Intent(this, Profile.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
@@ -167,6 +171,7 @@ public class Add extends AppCompatActivity {
                                     taskSnapshot.getDownloadUrl().toString());
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);
+
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -188,6 +193,7 @@ public class Add extends AppCompatActivity {
     }
 
     private void openImagesActivity() {
+
         Intent intent = new Intent(this, AllRecipies.class);
         startActivity(intent);
     }

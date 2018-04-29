@@ -103,6 +103,9 @@ public class AllRecipies extends AppCompatActivity  implements Adapter.OnItemCli
         }
         if(item.getItemId()== R.id.nav_add){
             Intent intent = new Intent(this, Add.class);
+
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
@@ -116,6 +119,7 @@ public class AllRecipies extends AppCompatActivity  implements Adapter.OnItemCli
 
     public void onEditClick(int position) {
         Toast.makeText(this, "Do you want edit : " + position, Toast.LENGTH_SHORT).show();
+
     }
 
     @Override

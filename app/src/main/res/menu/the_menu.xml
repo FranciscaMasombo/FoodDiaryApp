@@ -11,5 +11,10 @@
         android:orderInCategory="100"
         android:title="Recipes"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/dd"
+        android:orderInCategory="100"
+        android:title="Settings"
+        app:showAsAction="never" />
 
 </menu>

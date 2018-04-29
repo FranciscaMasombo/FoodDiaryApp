@@ -2,6 +2,7 @@ package ie.fran.fooddiary2;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,6 +30,8 @@ public class Login extends AppCompatActivity {
     private StorageReference mStorageRef;
     private DatabaseReference mydatabaseref;
     private FirebaseAuth mAuth;
+    //Give your SharedPreferences file a name and save it to a static variable
+    public static final String PREFS_NAME = "MyPrefsFile";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +59,15 @@ public class Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             //check if they are already a user
                             alreadyExists();
-                        }
-                        else{
+                            finish();
+                        } else {
                             //start new intent so they can use the app
                             Toast.makeText(getApplicationContext(), "You Need to Signup", Toast.LENGTH_SHORT).show();
+
+                            SharedPreferences settings = getSharedPreferences(Login.PREFS_NAME, 0);
+                           //Get "hasLoggedIn" value. If the value doesn't exist yet false is returned
+                            boolean hasLoggedIn = settings.getBoolean("hasLoggedIn", false);
+
 
                         }
                     }
@@ -77,17 +85,26 @@ public class Login extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild(userid)) {
+//User has successfully logged in, save this information
+// We need an Editor object to make preference changes.
+                    SharedPreferences settings = getSharedPreferences(Login.PREFS_NAME, 0); // 0 - for private mode
+                    SharedPreferences.Editor editor = settings.edit();
 
+//Set "hasLoggedIn" to true
+                    editor.putBoolean("hasLoggedIn", true);
+// Commit the edits!
+                    editor.commit();
                     //start new intent so they can use the app
                     Toast.makeText(getApplicationContext(), "Welcome Back. ", Toast.LENGTH_SHORT).show();
 
                     Intent home = new Intent(Login.this, AllRecipies.class);
                     startActivity(home);
-                    finish();
+//                    finish();
                 }
 
 
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
@@ -96,4 +113,9 @@ public class Login extends AppCompatActivity {
 
     }
 
+    public void signupbutton(View view) {
+        Intent loginFirst = new Intent(Login.this,Signup.class);
+        startActivity(loginFirst);
+        finish();
+    }
 }

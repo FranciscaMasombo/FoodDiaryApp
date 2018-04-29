@@ -61,6 +61,9 @@ public class Signup extends AppCompatActivity {
                             DatabaseReference currentuid = mydatabaseref.child(userid);
                             currentuid.child("Name").setValue(emailentered);
                             Toast.makeText(getApplicationContext(), "You are now signed up.", Toast.LENGTH_SHORT).show();
+                            Intent loginFirst = new Intent(Signup.this,Login.class);
+                            startActivity(loginFirst);
+                            finish();
                         }
                     }
 
@@ -73,6 +76,7 @@ public class Signup extends AppCompatActivity {
     public void loginbutton(View view) {
         Intent loginFirst = new Intent(Signup.this,Login.class);
         startActivity(loginFirst);
+        finish();
     }
 
 }
