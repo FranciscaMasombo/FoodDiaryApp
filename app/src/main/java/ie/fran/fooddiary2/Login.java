@@ -59,7 +59,7 @@ public class Login extends AppCompatActivity {
                         }
                         else{
                             //start new intent so they can use the app
-                            Toast.makeText(getApplicationContext(), "You Need to Reixter", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "You Need to Signup", Toast.LENGTH_SHORT).show();
 
                         }
                     }
@@ -79,7 +79,7 @@ public class Login extends AppCompatActivity {
                 if (dataSnapshot.hasChild(userid)) {
 
                     //start new intent so they can use the app
-                    Toast.makeText(getApplicationContext(), "Welcome Back.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Welcome Back. ", Toast.LENGTH_SHORT).show();
 
                     Intent home = new Intent(Login.this, AllRecipies.class);
                     startActivity(home);

@@ -57,8 +57,9 @@ public class Add extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
-Toolbar mt  = (Toolbar) findViewById(R.id.toolbar);
-setSupportActionBar(mt);
+   Toolbar myt =(Toolbar)findViewById(R.id.toolbar);
+ setSupportActionBar(myt);
+
         mButtonChooseImage = findViewById(R.id.button_choose_image);
         mButtonUpload = findViewById(R.id.button_upload);
         mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
@@ -99,9 +100,21 @@ setSupportActionBar(mt);
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater mf = getMenuInflater();
-        mf.inflate(R.menu.the_menu, menu);
+        MenuInflater mm = getMenuInflater();
+        mm.inflate(R.menu.the_menu,menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()== R.id.action_settings){
+            Intent intent = new Intent(this, AllRecipies.class);
+            startActivity(intent);
+        }if(item.getItemId()== R.id.nav_add){
+            Intent intent = new Intent(this, Add.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void openFileChooser() {

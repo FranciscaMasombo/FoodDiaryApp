@@ -96,6 +96,18 @@ public class AllRecipies extends AppCompatActivity  implements Adapter.OnItemCli
         return true;
     }
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()== R.id.action_settings){
+            Intent intent = new Intent(this, AllRecipies.class);
+            startActivity(intent);
+        }
+        if(item.getItemId()== R.id.nav_add){
+            Intent intent = new Intent(this, Add.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    @Override
     public void onItemClick(int position) {
         Toast.makeText(this, "This is Recipe Number: " + position, Toast.LENGTH_SHORT).show();
     }
