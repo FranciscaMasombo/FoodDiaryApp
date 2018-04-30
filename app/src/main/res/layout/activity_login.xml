@@ -63,7 +63,8 @@
             android:text="forgot password"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:textSize="25dp"/>
+            android:textSize="25dp"
+            android:onClick="signupbutton"/>
 
         <Button
             android:id="@+id/btn_signup"

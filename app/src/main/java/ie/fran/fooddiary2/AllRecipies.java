@@ -28,6 +28,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class AllRecipies extends AppCompatActivity  implements Adapter.OnItemClickListener{
@@ -106,6 +107,9 @@ public class AllRecipies extends AppCompatActivity  implements Adapter.OnItemCli
 
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }  if(item.getItemId()== R.id.dd){
+            Intent intent = new Intent(this, Profile.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

@@ -94,6 +94,8 @@ public class Login extends AppCompatActivity {
                     editor.putBoolean("hasLoggedIn", true);
 // Commit the edits!
                     editor.commit();
+
+
                     //start new intent so they can use the app
                     Toast.makeText(getApplicationContext(), "Welcome Back. ", Toast.LENGTH_SHORT).show();
 

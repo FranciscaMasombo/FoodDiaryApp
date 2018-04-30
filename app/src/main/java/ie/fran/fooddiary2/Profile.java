@@ -77,25 +77,24 @@ public class Profile extends AppCompatActivity {
         }
     };
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater mm = getMenuInflater();
-        mm.inflate(R.menu.the_menu, menu);
+        mm.inflate(R.menu.the_menu,menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_settings) {
+        if(item.getItemId()== R.id.action_settings){
             Intent intent = new Intent(this, AllRecipies.class);
             startActivity(intent);
-        }
-        if (item.getItemId() == R.id.nav_add) {
+        }if(item.getItemId()== R.id.nav_add){
             Intent intent = new Intent(this, Add.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
+            startActivity(intent);
+        }  if(item.getItemId()== R.id.dd){
+            Intent intent = new Intent(this, Profile.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
